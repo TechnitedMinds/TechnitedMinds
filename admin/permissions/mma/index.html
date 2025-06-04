@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JSON API Response</title>
+    <script>
+        // Force JSON content-type
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch(window.location.href, {
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</head>
+<body>
+    <pre id="json-data">{"grant": true}</pre>
+    <script>
+        // Set content-type to JSON (for direct API-like access)
+        if (window.location.pathname.endsWith('.json') || 
+            new URLSearchParams(window.location.search).has('json')) {
+            const jsonData = { grant: true };
+            document.body.innerHTML = '';
+            document.write(JSON.stringify(jsonData, null, 2));
+        }
+    </script>
+</body>
+</html>
