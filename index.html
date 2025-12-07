@@ -1,118 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technited Minds - Shaping Digital Tomorrows</title>
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&family=Share+Tech+Mono:wght@400&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Particle.js -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="description" content="Technited Minds - Professional Portfolio">
+    <title>Technited Minds | Innovation</title>
 </head>
-<body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar glass">
-            <div class="nav-container">
-                <div class="nav-logo">
-                    <h2>TECHNITED MINDS</h2>
-                </div>
-                <div class="nav-menu" id="nav-menu">
-                    <a href="#home" class="nav-link">Home</a>
-<!--                     <a href="#about" class="nav-link">About</a>
-                    <a href="#services" class="nav-link">Services</a> -->
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-                <div class="nav-toggle" id="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div id="particles-js"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">
-                SHAPING DIGITAL TOMORROWS
-                <div class="animated-underline"></div>
-            </h1>
-            <p class="hero-subtitle">Next-generation solutions in development</p>
-        </div>
-    </section>
+<body class="selection:bg-custom-active selection:text-custom-bg">
 
-    <!-- Status Panel -->
-    <section class="status-section">
-        <div class="status-panel glass">
-            <div class="holographic-cube">
-                <div class="cube">
-                    <div class="face front"></div>
-                    <div class="face back"></div>
-                    <div class="face right"></div>
-                    <div class="face left"></div>
-                    <div class="face top"></div>
-                    <div class="face bottom"></div>
-                </div>
-            </div>
-            <h3 class="status-text">Innovation in progress - Launching soon</h3>
-            <div class="progress-container">
-                <div class="progress-bar">
-                    <div class="progress-fill"></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- The Canvas -->
+    <div id="universe"></div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <h2 class="contact-title">
-                <span class="bracket">[</span>
-                CONTACT OUR COSMOS
-                <span class="bracket">]</span>
-            </h2>
-            <a href="mailto:technitedminds@gmail.com?subject=Inquiry%20from%20Technited%20Minds%20Website" class="email-card glass" id="email-card">
-                <div class="tron-email-icon">
-                    <div class="email-grid">
-                        <div class="grid-line"></div>
-                        <div class="grid-line"></div>
-                        <div class="grid-line"></div>
-                        <div class="grid-line"></div>
-                        <div class="email-symbol">@</div>
+    <main class="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
+
+        <!-- Header / Hero Section -->
+        <header class="min-h-[90vh] flex flex-col justify-center mb-32 md:mb-40">
+            <div>
+                <h5 class="font-mono text-custom-active text-sm tracking-[0.3em] mb-6 uppercase opacity-80">Technited
+                    Minds
+                </h5>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-white mb-8 leading-tight">
+                    Crafting Intelligence<br>
+                    <span class="text-custom-secondary">in the Digital Void.</span>
+                </h1>
+                <p class="max-w-2xl text-lg text-custom-secondary leading-relaxed font-light">
+                    Specializing in AI integration, secure offline architectures, and next-generation web experiences.
+                </p>
+
+                <div class="mt-12 flex flex-wrap items-center gap-6">
+                    <a href="mailto:hello@technitedminds.com" class="neumorph-btn w-fit hover:text-white group">
+                        <span>Contact Studio</span>
+                    </a>
+
+                    <!-- Social Icons -->
+                    <div class="flex gap-4">
+                        <!-- GitHub -->
+                        <a href="https://github.com/TechnitedMinds" target="_blank" class="social-icon group"
+                            aria-label="GitHub">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.981 1.029-2.68-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.699 1.028 1.587 1.028 2.68 0 3.842-2.339 4.687-4.566 4.935.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+
+                        <!-- Twitter/X -->
+                        <a href="https://x.com/technitedminds" target="_blank" class="social-icon group"
+                            aria-label="Twitter">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                                </path>
+                            </svg>
+                        </a>
+
+                        <!-- LinkedIn -->
+                        <a href="#" class="social-icon group" aria-label="LinkedIn">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
-                <div class="email-content">
-                    <p class="email-label">Reach us at:</p>
-                    <p class="email-address" id="email-address">technitedminds@gmail.com</p>
-                    <div class="transmission-indicator">
-                        <span class="transmit-text">TRANSMIT</span>
-                        <div class="circuit-pattern"></div>
+            </div>
+        </header>
+
+        <!-- Projects Grid -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+
+            <!-- 1. Prompt Optimizer (ACTIVE) -->
+            <article class="glass-card glass-card-active p-8 md:p-10 flex flex-col h-full justify-between group">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-3 bg-custom-active/10 rounded-lg text-custom-active">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <span
+                            class="px-3 py-1 rounded-full bg-custom-active/10 border border-custom-active/20 text-xs font-medium text-custom-active uppercase tracking-wider">Active
+                            System</span>
                     </div>
+                    <h3 class="text-3xl font-semibold text-white mb-3">Prompt Optimizer</h3>
+                    <p class="text-custom-secondary leading-relaxed">Advanced AI refinement engine. Enhances LLM prompt
+                        accuracy and context retention</p>
                 </div>
-            </a>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="hexagon-pattern"></div>
-        <div class="footer-content">
-            <div class="cyber-circle"></div>
-            <p class="copyright">© 2025 TECHNITED MINDS | Orbiting the future</p>
-        </div>
-    </footer>
+                <div class="mt-10">
+                    <a href="https://technitedminds.com/promptoptimizer" target="_blank"
+                        class="neumorph-btn neumorph-btn-primary w-full group-hover:-translate-y-1">
+                        Launch System
+                    </a>
+                </div>
+            </article>
 
-    <script src="script.js"></script>
+            <!-- 2. Astarva Tool (WIP) -->
+            <article class="glass-card glass-card-disabled p-8 md:p-10 flex flex-col h-full justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-3 bg-white/5 rounded-lg text-custom-secondary">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="font-mono text-xs text-custom-secondary opacity-60 uppercase tracking-wider">In
+                            Development</span>
+                    </div>
+                    <h3 class="text-3xl font-semibold text-custom-secondary mb-3">Astarva Tool</h3>
+                    <p class="text-custom-secondary opacity-60 leading-relaxed">AI-driven interview assistant. Currently
+                        undergoing architectural restructuring.</p>
+                </div>
+
+                <div class="mt-10">
+                    <button disabled class="neumorph-btn neumorph-btn-disabled w-full">Access Restricted</button>
+                </div>
+            </article>
+
+            <!-- 3. Wallet App (WIP) -->
+            <article class="glass-card glass-card-disabled p-8 md:p-10 flex flex-col h-full justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-3 bg-white/5 rounded-lg text-custom-secondary">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span
+                            class="font-mono text-xs text-custom-secondary opacity-60 uppercase tracking-wider">Offline
+                            Protocol</span>
+                    </div>
+                    <h3 class="text-3xl font-semibold text-custom-secondary mb-3">Wallet App</h3>
+                    <p class="text-custom-secondary opacity-60 leading-relaxed">Secure offline voucher & payment
+                        storage. Zero-knowledge proof architecture for Android.</p>
+                </div>
+
+                <div class="mt-10">
+                    <button disabled class="neumorph-btn neumorph-btn-disabled w-full">Coming Soon</button>
+                </div>
+            </article>
+
+            <!-- 4. Hydro Watch (Smartwatch Update) -->
+            <article class="glass-card glass-card-disabled p-8 md:p-10 flex flex-col h-full justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-3 bg-white/5 rounded-lg text-custom-secondary">
+                            <!-- Smartwatch Icon -->
+                            <!-- Water Droplet Icon -->
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5S12 5 12 5s-2 2.5-4 4.5S5 13 5 15a7 7 0 0 0 7 7z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span
+                            class="font-mono text-xs text-custom-secondary opacity-60 uppercase tracking-wider">WearOS</span>
+                    </div>
+                    <h3 class="text-3xl font-semibold text-custom-secondary mb-3">Water Reminder</h3>
+                    <p class="text-custom-secondary opacity-60 leading-relaxed">Professional water reminder app built
+                        for Smartwatches. Optimized for battery life and haptic feedback.</p>
+                </div>
+
+                <div class="mt-10">
+                    <button disabled class="neumorph-btn neumorph-btn-disabled w-full">Coming Soon</button>
+                </div>
+            </article>
+
+            <!-- 5. More Projects (Placeholder) -->
+            <article class="glass-card glass-card-disabled p-8 md:p-10 flex flex-col h-full justify-between">
+                <div>
+                    <div class="flex justify-between items-start mb-8">
+                        <div class="p-3 bg-white/5 rounded-lg text-custom-secondary">
+                            <!-- Three Dots / Loading Icon -->
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="font-mono text-xs text-custom-secondary opacity-60 uppercase tracking-wider">Future
+                            Lab</span>
+                    </div>
+                    <h3 class="text-3xl font-semibold text-custom-secondary mb-3">More Systems</h3>
+                    <p class="text-custom-secondary opacity-60 leading-relaxed">Advanced projects currently in R&D.
+                        Follow our socials for live deployment updates.</p>
+                </div>
+
+                <div class="mt-10">
+                    <button disabled class="neumorph-btn neumorph-btn-disabled w-full">Stay Tuned</button>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Footer (Cleaned) -->
+        <footer
+            class="mt-32 border-t border-white/5 pt-12 pb-8 text-center text-custom-secondary text-sm font-light opacity-70">
+            <p>&copy; 2026 Technited Minds.</p>
+            <p class="text-xs mt-2">Designed in the Void.</p>
+        </footer>
+
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
 </body>
-</html>
 
+</html>
