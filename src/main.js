@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initComets();
     initSmoothScroll();
     initProjectAnimations();
+    initModals();
 });
 
 function initUniverse() {
@@ -116,4 +117,106 @@ function initProjectAnimations() {
 
         observer.observe(card);
     });
+}
+
+/* --- MODAL SYSTEM --- */
+function initModals() {
+    const modalMap = {
+        'privacy-policy': document.getElementById('modal-privacy-policy'),
+        'terms': document.getElementById('modal-terms'),
+    };
+
+    function openModal(id) {
+        const modal = modalMap[id];
+        if (!modal) return;
+
+        // Lock body scroll
+        document.body.style.overflow = 'hidden';
+
+        // Show overlay
+        modal.classList.remove('modal-hidden');
+        modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal(id) {
+        const modal = modalMap[id];
+        if (!modal) return;
+
+        // Hide overlay
+        modal.classList.add('modal-hidden');
+        modal.setAttribute('aria-hidden', 'true');
+
+        // Restore body scroll
+        document.body.style.overflow = '';
+
+        // Reset scroll position inside modal body after transition
+        const body = modal.querySelector('.modal-body');
+        if (body) {
+            setTimeout(() => { body.scrollTop = 0; }, 400);
+        }
+    }
+
+    function closeAllModals() {
+        Object.keys(modalMap).forEach(closeModal);
+    }
+
+    function getOpenModalId() {
+        for (const [id, modal] of Object.entries(modalMap)) {
+            if (!modal.classList.contains('modal-hidden')) return id;
+        }
+        return null;
+    }
+
+    // Handle hash-based routing
+    function handleHash() {
+        const hash = window.location.hash.replace('#', '');
+        if (modalMap[hash]) {
+            openModal(hash);
+        } else {
+            closeAllModals();
+        }
+    }
+
+    // Footer link clicks
+    document.querySelectorAll('[data-modal-open]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            const id = trigger.getAttribute('data-modal-open');
+            window.location.hash = id;
+        });
+    });
+
+    // Close button clicks
+    document.querySelectorAll('[data-modal-close]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            history.pushState('', document.title, window.location.pathname + window.location.search);
+            closeAllModals();
+        });
+    });
+
+    // Backdrop clicks
+    Object.values(modalMap).forEach(modal => {
+        if (!modal) return;
+        const backdrop = modal.querySelector('.modal-backdrop');
+        if (backdrop) {
+            backdrop.addEventListener('click', () => {
+                history.pushState('', document.title, window.location.pathname + window.location.search);
+                closeAllModals();
+            });
+        }
+    });
+
+    // Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && getOpenModalId()) {
+            history.pushState('', document.title, window.location.pathname + window.location.search);
+            closeAllModals();
+        }
+    });
+
+    // Listen for hash changes (back/forward navigation)
+    window.addEventListener('hashchange', handleHash);
+
+    // Check hash on initial load
+    handleHash();
 }

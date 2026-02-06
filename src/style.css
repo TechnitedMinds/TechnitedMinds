@@ -90,6 +90,136 @@
     .social-icon:active {
         @apply shadow-neumorph-concave translate-y-0 scale-95;
     }
+
+    /* --- MODAL SYSTEM (iOS Glossy) --- */
+    .modal-overlay {
+        @apply fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6;
+        transition: opacity 0.35s cubic-bezier(0.32, 0.72, 0, 1),
+                    visibility 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .modal-overlay.modal-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .modal-overlay.modal-hidden .modal-container {
+        transform: scale(0.92) translateY(20px);
+        opacity: 0;
+    }
+
+    .modal-backdrop {
+        @apply absolute inset-0;
+        background: rgba(0, 0, 0, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+
+    .modal-container {
+        @apply relative w-full flex flex-col overflow-hidden;
+        max-width: 52rem;
+        max-height: 85vh;
+        border-radius: 1.75rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(30, 30, 32, 0.85);
+        backdrop-filter: blur(60px) saturate(180%);
+        -webkit-backdrop-filter: blur(60px) saturate(180%);
+        box-shadow:
+            0 0 0 0.5px rgba(255, 255, 255, 0.05),
+            0 25px 60px -12px rgba(0, 0, 0, 0.5),
+            0 0 80px rgba(56, 189, 248, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1),
+                    opacity 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    .modal-header {
+        @apply flex items-center justify-between px-8 py-5 flex-shrink-0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    .modal-close-btn {
+        @apply flex items-center justify-center w-8 h-8 rounded-full text-custom-secondary transition-all duration-200;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .modal-close-btn:hover {
+        @apply text-white;
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .modal-close-btn:active {
+        @apply scale-90;
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .modal-body {
+        @apply flex-1 overflow-y-auto px-8 py-8;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+    }
+
+    .modal-body::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 3px;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.14);
+    }
+
+    /* Modal Typography */
+    .modal-section {
+        @apply mb-8;
+    }
+
+    .modal-section:last-child {
+        @apply mb-0;
+    }
+
+    .modal-section h3 {
+        @apply text-base font-semibold text-white mb-3 tracking-wide;
+    }
+
+    .modal-section h4 {
+        @apply text-sm font-medium text-white/80 mb-2 mt-5;
+    }
+
+    .modal-section p {
+        @apply text-sm text-custom-secondary leading-relaxed mb-3;
+    }
+
+    .modal-section p:last-child {
+        @apply mb-0;
+    }
+
+    .modal-section ul {
+        @apply list-none space-y-2 mb-3 pl-0;
+    }
+
+    .modal-section li {
+        @apply text-sm text-custom-secondary leading-relaxed pl-5 relative;
+    }
+
+    .modal-section li::before {
+        content: '';
+        @apply absolute left-0 top-[0.55rem] w-1.5 h-1.5 rounded-full bg-custom-active/40;
+    }
+
+    .modal-section strong {
+        @apply text-white/90 font-medium;
+    }
 }
 
 /* --- AMBIENT STARS & COMETS --- */
