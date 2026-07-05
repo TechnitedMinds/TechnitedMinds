@@ -33,7 +33,7 @@
                 </p>
 
                 <div class="mt-12 flex flex-wrap items-center gap-6">
-                    <a href="mailto:hello@technitedminds.com" class="neumorph-btn w-fit hover:text-white group">
+                    <a href="#contact" class="neumorph-btn magic-lift w-fit hover:text-white group">
                         <span>Contact Studio</span>
                     </a>
 
@@ -223,6 +223,75 @@
                 </div>
             </article>
 
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact" class="mt-28 md:mt-36 scroll-mt-10" data-magic="reveal" data-magic-delay="80">
+            <div class="contact-panel magic-cursor-glow" data-magic="cursor-glow">
+                <div class="grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-14 p-6 md:p-10 lg:p-12">
+                    <div class="flex flex-col justify-between gap-10">
+                        <div>
+                            <p class="font-mono text-custom-active text-xs tracking-[0.32em] uppercase opacity-80 mb-5">
+                                Direct Signal
+                            </p>
+                            <h2 class="text-3xl md:text-5xl font-semibold tracking-tight text-white leading-tight mb-5">
+                                Bring the next system into orbit.
+                            </h2>
+                            <p class="text-custom-secondary leading-relaxed font-light max-w-xl">
+                                Tell us what you want to build, improve, or launch. The form sends straight to the
+                                Technited Minds inbox through EmailJS.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+                            <div class="contact-micro-panel">
+                                <span class="contact-spark magic-sparkle" aria-hidden="true"></span>
+                                <span class="text-custom-secondary">AI integrations</span>
+                            </div>
+                            <div class="contact-micro-panel">
+                                <span class="contact-spark magic-sparkle" aria-hidden="true"></span>
+                                <span class="text-custom-secondary">Web experiences</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form id="contact-form" class="space-y-5" novalidate>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <label class="contact-field">
+                                <span>Name</span>
+                                <input class="magic-focus" type="text" name="name" autocomplete="name"
+                                    placeholder="Your name" required>
+                            </label>
+
+                            <label class="contact-field">
+                                <span>Email</span>
+                                <input class="magic-focus" type="email" name="email" autocomplete="email"
+                                    placeholder="you@example.com" required>
+                            </label>
+                        </div>
+
+                        <label class="contact-field">
+                            <span>Title</span>
+                            <input class="magic-focus" type="text" name="title" value="I want the App" required>
+                        </label>
+
+                        <label class="contact-field">
+                            <span>Message</span>
+                            <textarea class="magic-focus" name="message" rows="5"
+                                placeholder="A short note about the app, workflow, or product you want to create."></textarea>
+                        </label>
+
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-4 pt-2">
+                            <button id="contact-submit" type="submit"
+                                class="neumorph-btn neumorph-btn-primary magic-lift min-w-44">
+                                <span class="submit-label">Send Inquiry</span>
+                                <span class="submit-spinner" aria-hidden="true"></span>
+                            </button>
+                            <p id="contact-status" class="contact-status" aria-live="polite"></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
 
         <!-- Footer -->

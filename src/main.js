@@ -1,10 +1,17 @@
 import './style.css'
+import emailjs from '@emailjs/browser'
+
+const EMAILJS_SERVICE_ID = 'service_sl2xt3x';
+const EMAILJS_TEMPLATE_ID = 'template_94vpw1r';
+const EMAILJS_PUBLIC_KEY = 'r_ReOTjngtydBWSzF';
 
 document.addEventListener('DOMContentLoaded', () => {
     initUniverse();
     initComets();
     initSmoothScroll();
     initProjectAnimations();
+    initMagicMotion();
+    initContactForm();
     initModals();
 });
 
@@ -116,6 +123,109 @@ function initProjectAnimations() {
         card.style.transitionDelay = `${index * 150}ms`;
 
         observer.observe(card);
+    });
+}
+
+function initMagicMotion() {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealItems = document.querySelectorAll('[data-magic~="reveal"]');
+
+    revealItems.forEach((item) => {
+        const delay = item.getAttribute('data-magic-delay');
+        if (delay) {
+            item.style.setProperty('--magic-delay', `${delay}ms`);
+        }
+    });
+
+    if (reduceMotion) {
+        revealItems.forEach((item) => item.classList.add('magic-revealed'));
+        return;
+    }
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('magic-revealed');
+            revealObserver.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px'
+    });
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+
+    document.querySelectorAll('[data-magic~="cursor-glow"]').forEach((item) => {
+        item.addEventListener('pointermove', (event) => {
+            const rect = item.getBoundingClientRect();
+            item.style.setProperty('--mx', `${event.clientX - rect.left}px`);
+            item.style.setProperty('--my', `${event.clientY - rect.top}px`);
+        });
+    });
+}
+
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    const submitButton = document.getElementById('contact-submit');
+    const status = document.getElementById('contact-status');
+
+    if (!form || !submitButton || !status) return;
+
+    function setStatus(message, state = '') {
+        status.textContent = message;
+        if (state) {
+            status.dataset.state = state;
+        } else {
+            delete status.dataset.state;
+        }
+    }
+
+    function setLoading(isLoading) {
+        submitButton.disabled = isLoading;
+        submitButton.classList.toggle('is-loading', isLoading);
+        submitButton.setAttribute('aria-busy', String(isLoading));
+    }
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            setStatus('Check the highlighted fields and try again.', 'error');
+            return;
+        }
+
+        const formData = new FormData(form);
+        const title = String(formData.get('title') || '').trim() || 'I want the App';
+        const name = String(formData.get('name') || '').trim();
+        const email = String(formData.get('email') || '').trim();
+        const message = String(formData.get('message') || '').trim();
+
+        setLoading(true);
+        setStatus('Sending signal...');
+
+        try {
+            await emailjs.send(
+                EMAILJS_SERVICE_ID,
+                EMAILJS_TEMPLATE_ID,
+                {
+                    title,
+                    name,
+                    email,
+                    reply_to: email,
+                    message
+                },
+                { publicKey: EMAILJS_PUBLIC_KEY }
+            );
+
+            form.reset();
+            setStatus('Inquiry sent. We will get back to you soon.', 'success');
+        } catch (error) {
+            console.error('EmailJS send failed:', error);
+            setStatus('Could not send right now. Please try again in a moment.', 'error');
+        } finally {
+            setLoading(false);
+        }
     });
 }
 
