@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser'
 const EMAILJS_SERVICE_ID = 'service_sl2xt3x';
 const EMAILJS_TEMPLATE_ID = 'template_94vpw1r';
 const EMAILJS_PUBLIC_KEY = 'r_ReOTjngtydBWSzF';
+const WHATSAPP_NUMBER = '918817259080';
 
 document.addEventListener('DOMContentLoaded', () => {
     initUniverse();
@@ -167,9 +168,10 @@ function initMagicMotion() {
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const submitButton = document.getElementById('contact-submit');
+    const whatsappButton = document.getElementById('contact-whatsapp');
     const status = document.getElementById('contact-status');
 
-    if (!form || !submitButton || !status) return;
+    if (!form || !submitButton || !whatsappButton || !status) return;
 
     function setStatus(message, state = '') {
         status.textContent = message;
@@ -186,6 +188,26 @@ function initContactForm() {
         submitButton.setAttribute('aria-busy', String(isLoading));
     }
 
+    function getContactPayload() {
+        const formData = new FormData(form);
+
+        return {
+            title: String(formData.get('title') || '').trim() || 'New project inquiry',
+            name: String(formData.get('name') || '').trim(),
+            email: String(formData.get('email') || '').trim(),
+            message: String(formData.get('message') || '').trim()
+        };
+    }
+
+    function buildWhatsAppMessage({ title, name, email, message }) {
+        return [
+            `Title: ${title}`,
+            `Name: ${name}`,
+            `Email: ${email}`,
+            `Message: ${message || 'No extra details added yet.'}`
+        ].join('\n');
+    }
+
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -195,11 +217,7 @@ function initContactForm() {
             return;
         }
 
-        const formData = new FormData(form);
-        const title = String(formData.get('title') || '').trim() || 'New project inquiry';
-        const name = String(formData.get('name') || '').trim();
-        const email = String(formData.get('email') || '').trim();
-        const message = String(formData.get('message') || '').trim();
+        const { title, name, email, message } = getContactPayload();
 
         setLoading(true);
         setStatus('Sending signal...');
@@ -226,6 +244,19 @@ function initContactForm() {
         } finally {
             setLoading(false);
         }
+    });
+
+    whatsappButton.addEventListener('click', () => {
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            setStatus('Add your name and email before opening WhatsApp.', 'error');
+            return;
+        }
+
+        const message = buildWhatsAppMessage(getContactPayload());
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        setStatus('WhatsApp is opening with your inquiry message.', 'success');
     });
 }
 

@@ -13,7 +13,7 @@ This website serves as the digital storefront for Technited Minds, showcasing ou
 - **Glass Morphism UI**: A sleek, translucent interface creates a sense of depth and modernity.
 - **Dynamic & Responsive**: Fully responsive design that looks great on all devices, from mobile phones to desktop monitors.
 - **Project Showcase**: A dedicated section to highlight active tools, planned builds, and client-ready capabilities.
-- **Contact Form**: A themed EmailJS inquiry form for app, website, and AI workflow requests.
+- **Contact Form**: A themed EmailJS inquiry form with a WhatsApp handoff for app, website, and AI workflow requests.
 
 ## Technologies Used
 
@@ -66,4 +66,4 @@ The optimized and minified files will be placed in the `dist/` directory, ready 
 
 ## Contact
 
-To get in touch, use the contact form on [technitedminds.com](https://technitedminds.com/) or email [hello@technitedminds.com](mailto:hello@technitedminds.com).
+To get in touch, use the contact form on [technitedminds.com](https://technitedminds.com/), message WhatsApp at [+91 88172 59080](https://wa.me/918817259080), or email [hello@technitedminds.com](mailto:hello@technitedminds.com).
