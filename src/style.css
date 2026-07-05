@@ -120,15 +120,35 @@
         box-shadow: 0 0 14px rgba(56, 189, 248, 0.62);
     }
 
-    .contact-phone {
-        @apply w-fit rounded-xl border border-custom-active/10 bg-white/[0.025] px-4 py-3 text-sm text-custom-secondary transition-all duration-200;
+    .contact-icon-row {
+        @apply flex items-center gap-3;
+    }
+
+    .contact-icon-btn {
+        @apply inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl border bg-white/[0.025] text-custom-secondary transition-all duration-200;
         box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.18), inset -1px -1px 4px rgba(255, 255, 255, 0.03);
     }
 
-    .contact-phone:hover {
-        @apply border-custom-active/30 text-custom-active;
+    .contact-icon-whatsapp {
+        @apply border-emerald-400/10 text-emerald-200/85;
+    }
+
+    .contact-icon-whatsapp:hover {
+        @apply border-emerald-300/30 text-white;
         box-shadow:
-            0 0 22px rgba(56, 189, 248, 0.08),
+            0 0 24px rgba(52, 211, 153, 0.12),
+            inset 1px 1px 6px rgba(0, 0, 0, 0.18),
+            inset -1px -1px 4px rgba(255, 255, 255, 0.03);
+    }
+
+    .contact-icon-call {
+        @apply border-custom-active/10 text-custom-active/85;
+    }
+
+    .contact-icon-call:hover {
+        @apply border-custom-active/30 text-white;
+        box-shadow:
+            0 0 24px rgba(56, 189, 248, 0.12),
             inset 1px 1px 6px rgba(0, 0, 0, 0.18),
             inset -1px -1px 4px rgba(255, 255, 255, 0.03);
     }
@@ -183,15 +203,6 @@
 
     #contact-submit:disabled {
         @apply cursor-wait opacity-70;
-    }
-
-    .contact-whatsapp-btn {
-        @apply whitespace-nowrap border-emerald-400/10 text-emerald-200/90;
-    }
-
-    .contact-whatsapp-btn:hover {
-        @apply border-emerald-300/30 text-white;
-        box-shadow: 0 0 24px rgba(52, 211, 153, 0.12);
     }
 
     /* --- MODAL SYSTEM (iOS Glossy) --- */

@@ -66,4 +66,4 @@ The optimized and minified files will be placed in the `dist/` directory, ready 
 
 ## Contact
 
-To get in touch, use the contact form on [technitedminds.com](https://technitedminds.com/), message WhatsApp at [+91 88172 59080](https://wa.me/918817259080), or email [hello@technitedminds.com](mailto:hello@technitedminds.com).
+To get in touch, use the contact form on [technitedminds.com](https://technitedminds.com/), the WhatsApp/call icons on the website, or email [hello@technitedminds.com](mailto:hello@technitedminds.com).

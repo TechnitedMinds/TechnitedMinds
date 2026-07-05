@@ -168,10 +168,10 @@ function initMagicMotion() {
 function initContactForm() {
     const form = document.getElementById('contact-form');
     const submitButton = document.getElementById('contact-submit');
-    const whatsappButton = document.getElementById('contact-whatsapp');
+    const whatsappTriggers = document.querySelectorAll('[data-whatsapp-trigger]');
     const status = document.getElementById('contact-status');
 
-    if (!form || !submitButton || !whatsappButton || !status) return;
+    if (!form || !submitButton || !whatsappTriggers.length || !status) return;
 
     function setStatus(message, state = '') {
         status.textContent = message;
@@ -246,7 +246,7 @@ function initContactForm() {
         }
     });
 
-    whatsappButton.addEventListener('click', () => {
+    function openWhatsAppMessage() {
         if (!form.checkValidity()) {
             form.reportValidity();
             setStatus('Add your name and email before opening WhatsApp.', 'error');
@@ -257,6 +257,10 @@ function initContactForm() {
         const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
         setStatus('WhatsApp is opening with your inquiry message.', 'success');
+    }
+
+    whatsappTriggers.forEach((trigger) => {
+        trigger.addEventListener('click', openWhatsAppMessage);
     });
 }
 
