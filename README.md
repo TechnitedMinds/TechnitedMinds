@@ -1,6 +1,6 @@
 # Technited Minds - Professional Portfolio
 
-This repository contains the source code for the official website of **Technited Minds**, a forward-thinking technology studio specializing in AI integration, secure offline architectures, and next-generation web experiences.
+This repository contains the source code for the official website of **Technited Minds**, a technology studio building practical AI integrations, custom web products, automation tools, and focused apps.
 
 The live website can be visited at [technitedminds.com](https://technitedminds.com/).
 
@@ -12,7 +12,8 @@ This website serves as the digital storefront for Technited Minds, showcasing ou
 - **Modern Tech Stack**: Built with Vite for a blazing-fast development experience and Tailwind CSS for a utility-first styling workflow.
 - **Glass Morphism UI**: A sleek, translucent interface creates a sense of depth and modernity.
 - **Dynamic & Responsive**: Fully responsive design that looks great on all devices, from mobile phones to desktop monitors.
-- **Project Showcase**: A dedicated section to highlight our flagship products and ongoing experiments.
+- **Project Showcase**: A dedicated section to highlight active tools, planned builds, and client-ready capabilities.
+- **Contact Form**: A themed EmailJS inquiry form for app, website, and AI workflow requests.
 
 ## Technologies Used
 
@@ -26,9 +27,11 @@ This website serves as the digital storefront for Technited Minds, showcasing ou
 The portfolio currently features the following systems:
 
 1.  **Prompt Optimizer**: An active AI refinement engine designed to enhance the accuracy and context-retention of Large Language Model (LLM) prompts.
-2.  **Astarva Tool**: An AI-driven interview assistant currently in the architectural restructuring phase.
-3.  **Wallet App**: A secure, offline-first voucher and payment storage solution for Android, built on a zero-knowledge proof architecture.
-4.  **Water Reminder**: A professional water reminder application for WearOS, optimized for battery life and haptic feedback.
+2.  **Audio Amigos**: A text-to-audio workflow for creating structured scripts and voice-ready content.
+3.  **Astarva Interview Assistant**: A planned interview practice assistant with guided prompts, answer structure, and review support.
+4.  **Offline Wallet**: A planned Android-first wallet for local voucher and payment record access.
+5.  **WearOS Water Reminder**: A smartwatch hydration reminder focused on lightweight alerts, haptic feedback, and battery-conscious scheduling.
+6.  **Custom Client Builds**: App, automation, landing page, and AI workflow requests handled through the contact form.
 
 ## Setup and Development
 
@@ -63,4 +66,4 @@ The optimized and minified files will be placed in the `dist/` directory, ready 
 
 ## Contact
 
-To get in touch, please visit our website or email us at [hello@technitedminds.com](mailto:hello@technitedminds.com).
+To get in touch, use the contact form on [technitedminds.com](https://technitedminds.com/) or email [hello@technitedminds.com](mailto:hello@technitedminds.com).

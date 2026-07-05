@@ -196,7 +196,7 @@ function initContactForm() {
         }
 
         const formData = new FormData(form);
-        const title = String(formData.get('title') || '').trim() || 'I want the App';
+        const title = String(formData.get('title') || '').trim() || 'New project inquiry';
         const name = String(formData.get('name') || '').trim();
         const email = String(formData.get('email') || '').trim();
         const message = String(formData.get('message') || '').trim();
